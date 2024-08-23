@@ -1,0 +1,75 @@
+@startuml
+
+class IPhone {
+  - aparelhoTelefonico: AparelhoTelefonico
+  - navegadorInternet: NavegadorInternet
+  - reprodutorMusical: ReprodutorMusical
+  + Iniciar() : void
+  + AcessarAparelhoTelefonico() : void
+  + AcessarNavegadorInternet() : void
+  + AcessarReprodutorMusical() : void
+}
+
+class ReprodutorMusical {
+  - playlists: ArrayList<String>
+  - artistas: ArrayList<String>
+  - musicas: ArrayList<String>
+  - videos: ArrayList<String>
+  + AcessarPlaylists() : void
+  + AcessarArtistas() : void
+  + AcessarMusicas() : void
+  + AcessarVideos() : void
+  + VoltarAoMenu() : void
+  + ExibirOpcoesDeNavegacao() : void
+  - delay(milliseconds: int) : void
+}
+
+class AparelhoTelefonico {
+  - console: Scanner
+  - favoritos: ArrayList<String>
+  - recentes: ArrayList<String>
+  - contatos: String[]
+  - fotos: String[]
+  - correioDeVoz: String[]
+  + Iniciar() : void
+  - AcessarFavoritos() : void
+  - AcessarRecentes() : void
+  - AcessarContatos() : void
+  - AcessarCorreioDeVoz() : void
+  - AcessarFotos() : void
+  - VoltarAoMenu() : void
+  - VerContato(contato: String) : void
+  - AdicionarRecente(contato: String) : void
+  - AdicionarFavorito(contato: String) : void
+  - RemoverFavorito(contato: String) : void
+  - ExibirOpcoesDeNavegacao(escolhaAtual: String) : void
+  - DigitarParaVoltar() : void
+  - delay(milliseconds: int) : void
+}
+
+class NavegadorInternet {
+  - console: Scanner
+  - emails: String[]
+  + Iniciar() : void
+  - AcessarGoogleMaps() : void
+  - AcessarEmail() : void
+  - AcessarSafari() : void
+  - VoltarAoMenu() : void
+  - ExibirOpcoesDeNavegacao(escolhaAtual: String) : void
+  - delay(milissegundos: int) : void
+}
+
+class Mensagens {
+  + EscolherOpcao(console: Scanner) : void
+  - delay(milissegundos: int) : void
+}
+
+AparelhoTelefonico -> Mensagens : mensagens
+ReprodutorMusical -> Mensagens : mensagens
+NavegadorInternet -> Mensagens : mensagens
+
+IPhone -> AparelhoTelefonico : usa
+IPhone -> NavegadorInternet : usa
+IPhone -> ReprodutorMusical : usa
+
+@enduml
