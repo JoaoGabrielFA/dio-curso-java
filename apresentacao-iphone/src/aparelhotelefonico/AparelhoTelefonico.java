@@ -253,7 +253,7 @@ public class AparelhoTelefonico {
   private void ExibirOpcoesDeNavegacao(String escolhaAtual) {
     System.out.println("\nO que você gostaria de fazer a seguir?");
     System.out.println("1. Voltar aos " + escolhaAtual);
-    System.out.println("2. Voltar ao Reprodutor Musical");
+    System.out.println("2. Voltar ao Aparelho Telefonico");
     System.out.println("0. Voltar ao menu\n");
 
     int escolha = console.nextInt();
@@ -273,7 +273,7 @@ public class AparelhoTelefonico {
         }
         break;
       case 2:
-        System.out.println("\nVoltando ao Aparelho Telefonico");
+        System.out.println("\nVoltando ao Aparelho Telefonico...");
         delay(1000);
         Iniciar();
         break;

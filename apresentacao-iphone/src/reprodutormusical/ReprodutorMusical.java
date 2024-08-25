@@ -255,7 +255,7 @@ public class ReprodutorMusical {
         }
         break;
       case 2:
-        System.out.println("\nVoltando ao Reprodutor Musical");
+        System.out.println("\nVoltando ao Reprodutor Musical...");
         delay(1000);
         Iniciar();
         break;

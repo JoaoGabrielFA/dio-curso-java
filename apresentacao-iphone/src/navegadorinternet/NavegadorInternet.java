@@ -66,7 +66,7 @@ public class NavegadorInternet {
         int escolha = console.nextInt();
 
         if (escolha >= 1 && escolha <= emails.length) {
-            System.out.println("\nLendo e-mail: " + emails[escolha - 1]);
+            System.out.println("\nLendo e-mail: " + emails[escolha - 1] + "...");
         } else if (escolha == 0) {
             Iniciar();
         } else {
