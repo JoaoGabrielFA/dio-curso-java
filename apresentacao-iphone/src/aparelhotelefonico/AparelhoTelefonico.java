@@ -2,7 +2,8 @@ package aparelhotelefonico;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import utils.Mensagens;
+import utils.Gerenciador;
+import static utils.Gerenciador.delay;
 
 public class AparelhoTelefonico {
   private Scanner console;
@@ -68,7 +69,7 @@ public class AparelhoTelefonico {
         AcessarFotos();
         break;
       case 0:
-        Mensagens.EscolherOpcao(console);
+        Gerenciador.EscolherOpcao();
         break;
       default:
         System.out.println("\nOpção inválida. Tente novamente.");
@@ -291,13 +292,5 @@ public class AparelhoTelefonico {
   private void DigitarParaVoltar() {
     System.out.println("\nDigite qualquer botão para voltar.");
     console.next();
-  }
-
-  private void delay(int milliseconds) {
-    try {
-      Thread.sleep(milliseconds);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
   }
 }

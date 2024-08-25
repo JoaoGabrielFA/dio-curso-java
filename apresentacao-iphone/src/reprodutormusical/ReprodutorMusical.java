@@ -1,16 +1,18 @@
 package reprodutormusical;
 
 import java.util.Scanner;
-import utils.Mensagens;
+import utils.Gerenciador;
+import static utils.Gerenciador.delay;
 
 public class ReprodutorMusical {
 
   private Scanner console;
-  private Mensagens mensagens;
+  private String[] artistas;
+  private String[] albuns; 
+  private String[] musicas;
 
   public ReprodutorMusical(Scanner console) {
     this.console = console;
-    this.mensagens = new Mensagens(); // Inicialize Mensagens aqui
   }
 
   public void Iniciar() {
@@ -231,7 +233,7 @@ public class ReprodutorMusical {
   private void VoltarAoMenu() {
     System.out.println("\nVoltando ao menu...");
     delay(1000);
-    mensagens.EscolherOpcao(console);
+    Gerenciador.EscolherOpcao();
   }
 
   private void ExibirOpcoesDeNavegacao(String escolhaAtual) {
@@ -267,14 +269,6 @@ public class ReprodutorMusical {
         delay(1000);
         ExibirOpcoesDeNavegacao(escolhaAtual);
         break;
-    }
-  }
-
-  private void delay(int milliseconds) {
-    try {
-      Thread.sleep(milliseconds);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
     }
   }
 }

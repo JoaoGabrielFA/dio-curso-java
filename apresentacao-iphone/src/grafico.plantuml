@@ -1,75 +1,78 @@
 @startuml
 
+
 class IPhone {
-  - aparelhoTelefonico: AparelhoTelefonico
-  - navegadorInternet: NavegadorInternet
-  - reprodutorMusical: ReprodutorMusical
-  + Iniciar() : void
-  + AcessarAparelhoTelefonico() : void
-  + AcessarNavegadorInternet() : void
-  + AcessarReprodutorMusical() : void
+  + main(args: String[]): void
 }
 
-class ReprodutorMusical {
-  - playlists: ArrayList<String>
-  - artistas: ArrayList<String>
-  - musicas: ArrayList<String>
-  - videos: ArrayList<String>
-  + AcessarPlaylists() : void
-  + AcessarArtistas() : void
-  + AcessarMusicas() : void
-  + AcessarVideos() : void
-  + VoltarAoMenu() : void
-  + ExibirOpcoesDeNavegacao() : void
-  - delay(milliseconds: int) : void
+package "utils" {
+  class Gerenciador {
+    - Scanner console
+    - ReprodutorMusical rm
+    - AparelhoTelefonico at
+    - NavegadorInternet ni
+    --
+    + EscolherOpcao(): void
+    - delay(milissegundos: int): void
+  }
 }
 
-class AparelhoTelefonico {
-  - console: Scanner
-  - favoritos: ArrayList<String>
-  - recentes: ArrayList<String>
-  - contatos: String[]
-  - fotos: String[]
-  - correioDeVoz: String[]
-  + Iniciar() : void
-  - AcessarFavoritos() : void
-  - AcessarRecentes() : void
-  - AcessarContatos() : void
-  - AcessarCorreioDeVoz() : void
-  - AcessarFotos() : void
-  - VoltarAoMenu() : void
-  - VerContato(contato: String) : void
-  - AdicionarRecente(contato: String) : void
-  - AdicionarFavorito(contato: String) : void
-  - RemoverFavorito(contato: String) : void
-  - ExibirOpcoesDeNavegacao(escolhaAtual: String) : void
-  - DigitarParaVoltar() : void
-  - delay(milliseconds: int) : void
+package "reprodutormusical" {
+  class ReprodutorMusical {
+    - Scanner console
+    - String[] artistas
+    - String[] albuns
+    - String[] musicas
+    --
+    + ReprodutorMusical(console: Scanner)
+    + Iniciar(): void
+    - AcessarPlaylists(): void
+    - AcessarArtistas(): void
+    - AcessarMusicas(): void
+    - AcessarVideos(): void
+    - VoltarAoMenu(): void
+    - ExibirOpcoesDeNavegacao(escolhaAtual: String): void
+  }
 }
 
-class NavegadorInternet {
-  - console: Scanner
-  - emails: String[]
-  + Iniciar() : void
-  - AcessarGoogleMaps() : void
-  - AcessarEmail() : void
-  - AcessarSafari() : void
-  - VoltarAoMenu() : void
-  - ExibirOpcoesDeNavegacao(escolhaAtual: String) : void
-  - delay(milissegundos: int) : void
+package "aparelhotelefonico" {
+  class AparelhoTelefonico {
+    - Scanner console
+    - ArrayList<String> favoritos
+    - ArrayList<String> recentes
+    - String[] contatos
+    - String[] fotos
+    - String[] correioDeVoz
+    --
+    + AparelhoTelefonico(console: Scanner)
+    + Iniciar(): void
+    - AcessarFavoritos(): void
+    - AcessarRecentes(): void
+    - AcessarContatos(): void
+    - AcessarCorreioDeVoz(): void
+    - AcessarFotos(): void
+    - ExibirOpcoesDeNavegacao(escolhaAtual: String): void
+  }
 }
 
-class Mensagens {
-  + EscolherOpcao(console: Scanner) : void
-  - delay(milissegundos: int) : void
+package "navegadorinternet" {
+  class NavegadorInternet {
+    - Scanner console
+    - String[] emails
+    --
+    + NavegadorInternet(console: Scanner)
+    + Iniciar(): void
+    - AcessarGoogleMaps(): void
+    - AcessarEmail(): void
+    - AcessarSafari(): void
+    - VoltarAoMenu(): void
+    - ExibirOpcoesDeNavegacao(escolhaAtual: String): void
+  }
 }
 
-AparelhoTelefonico -> Mensagens : mensagens
-ReprodutorMusical -> Mensagens : mensagens
-NavegadorInternet -> Mensagens : mensagens
-
-IPhone -> AparelhoTelefonico : usa
-IPhone -> NavegadorInternet : usa
-IPhone -> ReprodutorMusical : usa
+IPhone --> Gerenciador
+Gerenciador --> ReprodutorMusical
+Gerenciador --> AparelhoTelefonico
+Gerenciador --> NavegadorInternet
 
 @enduml

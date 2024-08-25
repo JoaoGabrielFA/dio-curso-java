@@ -1,7 +1,8 @@
 package navegadorinternet;
 
 import java.util.Scanner;
-import utils.Mensagens;
+import utils.Gerenciador;
+import static utils.Gerenciador.delay;
 
 public class NavegadorInternet {
     private Scanner console;
@@ -84,7 +85,7 @@ public class NavegadorInternet {
 
     private void VoltarAoMenu() {
         System.out.println("\nVoltando ao menu...");
-        Mensagens.EscolherOpcao(console);
+        Gerenciador.EscolherOpcao();
     }
 
     private void ExibirOpcoesDeNavegacao(String escolhaAtual) {
@@ -117,14 +118,6 @@ public class NavegadorInternet {
                 System.out.println("\nOpção inválida. Tente de novo.");
                 ExibirOpcoesDeNavegacao(escolhaAtual);
                 break;
-        }
-    }
-
-    private void delay(int milissegundos) {
-        try {
-            Thread.sleep(milissegundos);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
