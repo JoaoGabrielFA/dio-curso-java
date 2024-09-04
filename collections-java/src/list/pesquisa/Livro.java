@@ -25,7 +25,7 @@ public class Livro {
 
   @Override
   public String toString() {
-    return "\n *" + this.titulo + " - " + this.autor + " " + this.anoPublicacao;
+    return "\n *" + titulo + " - " + autor + " - " + anoPublicacao;
   }
 
 }
