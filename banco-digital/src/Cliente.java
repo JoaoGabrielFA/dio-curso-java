@@ -1,9 +1,11 @@
 class Cliente {
   private String nome;
+  private String senha;
   private Conta conta;
 
-  public Cliente(String nome) {
+  public Cliente(String nome, String senha) {
     this.nome = nome;
+    this.senha = senha;
     this.conta = new Conta(this);
   }
 
@@ -13,6 +15,10 @@ class Cliente {
 
   public Conta getConta() {
     return this.conta;
+  }
+
+  public boolean checarSenha(String senha){
+      return this.senha.equals(senha);
   }
 
   @Override

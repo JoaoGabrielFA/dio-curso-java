@@ -22,4 +22,12 @@ public class Banco {
   public Cliente getCliente(String nome) {
     return clientes.get(nome);
   }
+
+  public boolean checarLogin(String nome, String senha){
+    if(clientes.get(nome) == null){
+      return false;
+    } else{
+      return getCliente(nome).checarSenha(senha);
+    }
+  }
 }
