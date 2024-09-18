@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class Banco {
   private final String nomeBanco = "SuperBank";
-  private Map<String, Conta> clientes;
+  private Map<String, Conta> contas;
 
   public Banco() {
-    clientes = new HashMap<>();
+    contas = new HashMap<>();
   }
 
   public void iniciar(){
@@ -15,19 +15,19 @@ public class Banco {
     ui.iniciar();
   }
 
-  public void adicionarCliente(Conta cliente) {
-    clientes.put(cliente.getNomeTitular(), cliente);
+  public void adicionarConta(Conta conta) {
+    contas.put(conta.getNomeTitular(), conta);
   }
 
-  public Conta getCliente(String nome) {
-    return clientes.get(nome);
+  public Conta getConta(String nome) {
+    return contas.get(nome);
   }
 
   public boolean checarLogin(String nome, String senha){
-    if(clientes.get(nome) == null){
+    if(contas.get(nome) == null){
       return false;
     } else{
-      return getCliente(nome).checarSenha(senha);
+      return getConta(nome).checarSenha(senha);
     }
   }
 }
