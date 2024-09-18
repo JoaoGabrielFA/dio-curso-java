@@ -114,12 +114,12 @@ public class IBanco {
     }
   }
 
-  void bemVindo(Cliente cliente) {
+  void bemVindo(Conta cliente) {
     String[] opcoes = { "Ver Fatura", "Fazer Transferência", "Fazer Depósito" };
 
     int resposta = JOptionPane.showOptionDialog(
         null,
-        "O seu saldo é R$: " + cliente.getConta().getSaldo() + "\nO que gostaria de fazer?",
+        "O seu saldo é R$: " + cliente.getSaldo() + "\nO que gostaria de fazer?",
         "Bem vindo " + cliente,
         JOptionPane.DEFAULT_OPTION,
         JOptionPane.QUESTION_MESSAGE,
@@ -129,6 +129,7 @@ public class IBanco {
 
     switch (resposta) {
       case 0:
+        verFatura();
         break;
       case 1:
         break;
@@ -138,7 +139,11 @@ public class IBanco {
     }
   }
 
-  void fazerDeposito(Cliente cliente) {
+  private void verFatura() {
+    throw new UnsupportedOperationException("Unimplemented method 'verFatura'");
+  }
+
+  void fazerDeposito(Conta cliente) {
     JTextField valorDeposito = new JTextField();
 
     int opcao = JOptionPane.showOptionDialog(
@@ -152,7 +157,7 @@ public class IBanco {
         "Depositar");
 
     if(opcao == 0){
-      cliente.getConta().depositar(Double.parseDouble(valorDeposito.getText()));
+      cliente.depositar(Double.parseDouble(valorDeposito.getText()));
     }
 
     bemVindo(cliente);

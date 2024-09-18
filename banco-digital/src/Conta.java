@@ -1,27 +1,34 @@
-
-import java.util.List;
-
 public class Conta {
-  private final Cliente cliente;
+  private String nomeTitular;
+  private String senha;
   private final String agencia = "0001";
   private final String numero = "000001";
   private double saldo = 0d;
-  private List<Cartao> cartoes;
+  private Cartao cartaoCredito;
 
-  public Conta(Cliente cliente) {
-    this.cliente = cliente;
+  public Conta(String nomeTitular, String senha) {
+    this.nomeTitular = nomeTitular;
+    this.senha = senha;
   }
 
-  public double getSaldo(){
+  public String getNomeTitular() {
+    return this.nomeTitular;
+  }
+
+  public boolean checarSenha(String senha){
+    return this.senha.equals(senha);
+  }
+
+  public double getSaldo() {
     return this.saldo;
   }
 
-  public void depositar(double valor){
+  public void depositar(double valor) {
     this.saldo += valor;
   }
 
   @Override
   public String toString() {
-    return ", Agencia: " + agencia + ", " + "Numero: " + numero;
+    return "Titular: " + nomeTitular + ", Agencia: " + agencia + ", Numero: " + numero + ", Saldo: " + saldo;
   }
 }

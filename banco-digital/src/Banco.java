@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Banco {
   private final String nomeBanco = "SuperBank";
-  private Map<String, Cliente> clientes;
+  private Map<String, Conta> clientes;
 
   public Banco() {
     clientes = new HashMap<>();
@@ -15,11 +15,11 @@ public class Banco {
     ui.iniciar();
   }
 
-  public void adicionarCliente(Cliente cliente) {
-    clientes.put(cliente.getNome(), cliente);
+  public void adicionarCliente(Conta cliente) {
+    clientes.put(cliente.getNomeTitular(), cliente);
   }
 
-  public Cliente getCliente(String nome) {
+  public Conta getCliente(String nome) {
     return clientes.get(nome);
   }
 
